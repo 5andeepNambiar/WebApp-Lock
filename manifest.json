@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Web Lock Extension",
+  "version": "1.0",
+  "description": "Locks web pages with a password",
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["http://127.0.0.1:5500/*"],
+      "js": ["content_script.js"]
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon.png",
+      "24": "assets/icon.png",
+      "32": "assets/icon.png"
+    },
+    "default_title": "Web-Lock"
+  },
+
+  "permissions": [
+    "storage",
+    "tabs"
+  ]
+}
