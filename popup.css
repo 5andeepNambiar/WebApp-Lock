@@ -12,7 +12,7 @@ html, body {
       margin: 0;
       padding: 10px;
       background: url(https://picsum.photos/2500/1500?image=1041);
-      /* background-size: cover; */
+      background-size: cover;
       font-family: sans-serif;
       box-sizing: border-box;
       text-align: center;

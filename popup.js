@@ -23,10 +23,8 @@ document.getElementById("myButton1").addEventListener("click", function() {
     console.log(password)
     if (response === password) {
       alert("Correct!");
-      // Open the target page in a new tab
       chrome.tabs.create({ url: "page.html" });
     } else {
-      // If the passwords don't match, display an error message
       alert("Incorrect");
     }
   });
