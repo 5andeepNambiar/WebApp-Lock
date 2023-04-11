@@ -1,32 +1,32 @@
-const form = document.querySelector('form');
+const button2 = document.getElementById('myButton2');
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const password = document.querySelector('input[name="password2"]').value;
-  const confirmPassword = document.querySelector('input[name="confirm-password"]').value;
+if (button2) {
+  button2.addEventListener("click", function() {
+    const password = document.getElementById("password2").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
 
-  if (password === confirmPassword) {
-    localStorage.setItem('password', password);
-    alert('Password saved successfully');
-  } else {
-    alert('Passwords do not match');
-  }
-});
-
-
-document.getElementById("myButton1").addEventListener("click", function() {
-  const password = document.getElementById("password1").value;
-  // Send a message to the background script to check the password
-  chrome.runtime.sendMessage("checkPassword", function(response) {
-    // If the stored password matches the entered password, display a success message
-    console.log(response)
-    console.log(password)
-    if (response === password) {
-      alert("Correct!");
-      chrome.tabs.create({ url: "page.html" });
+    if(password == confirmPassword) {
+      localStorage.setItem('password', password);
+      alert("Password saved successfully");
     } else {
-      alert("Incorrect");
+      alert('Password do no match');
     }
   });
-});
+}
 
+
+const button1 = document.getElementById('myButton1');
+
+if (button1) {
+  button1.addEventListener("click", function() {
+    const password = document.getElementById("password1").value;
+    chrome.runtime.sendMessage("checkPassword", function(response) {
+      if (response === password) {
+        alert("Correct!");
+        chrome.tabs.create({ url: "page.html" });
+      } else {
+        alert("Incorrect");
+      }
+    });
+  });
+}
