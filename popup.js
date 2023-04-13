@@ -1,3 +1,11 @@
+(function() {
+  if (localStorage.getItem("password") !== null) {
+    window.location.href = "popup.html";
+  } else {
+    window.location.href = "index.html";
+  }
+})();
+
 const button2 = document.getElementById('myButton2');
 
 if (button2) {
@@ -13,7 +21,6 @@ if (button2) {
     }
   });
 }
-
 
 const button1 = document.getElementById('myButton1');
 
