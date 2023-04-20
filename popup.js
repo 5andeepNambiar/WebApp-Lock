@@ -1,10 +1,10 @@
-(function() {
-  if (localStorage.getItem("password") !== null) {
-    window.location.href = "popup.html";
-  } else {
-    window.location.href = "index.html";
-  }
-})();
+// (function() {
+//   if (localStorage.getItem("password") !== null) {
+//     window.location.href = "popup.html";
+//   } else {
+//     window.location.href = "index.html";
+//   }
+// })();
 
 const button2 = document.getElementById('myButton2');
 
@@ -30,7 +30,7 @@ if (button1) {
     chrome.runtime.sendMessage("checkPassword", function(response) {
       if (response === password) {
         alert("Correct!");
-        chrome.tabs.create({ url: "page.html" });
+        chrome.tabs.create({ url: "https://web.whatsapp.com/" });
       } else {
         alert("Incorrect");
       }

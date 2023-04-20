@@ -8,13 +8,15 @@
     "service_worker": "background.js"
   },
 
+
   "content_scripts": [
     {
-      "matches": ["http://127.0.0.1:5500/*"],
-      "js": ["content_script.js"]
+      "matches": ["*://*.whatsapp.com/*", "*://*.facebook.com/*", "*://*.instagram.com/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_end"
     }
   ],
-
+  
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -30,3 +32,5 @@
     "tabs"
   ]
 }
+
+
